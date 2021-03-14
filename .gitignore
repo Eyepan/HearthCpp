@@ -1,2 +1,4 @@
 
 vendor/premake/bin/premake5.exe
+Hearth.sln
+Hearth.vcxproj
