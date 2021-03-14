@@ -18,7 +18,7 @@ Lexer::Lexer(std::string text)
 {
 	_text = text;
 	_pos = -1;
-	_currentChar = NULL;
+	_currentChar = '\0';
 	advance();
 }
 
@@ -31,7 +31,7 @@ void Lexer::advance()
 	}
 	else
 	{
-		_currentChar = NULL;
+		_currentChar = '\0';
 	}
 }
 
@@ -39,7 +39,7 @@ std::vector<Token> Lexer::makeTokens()
 {
 	std::vector<Token> _tokens;
 
-	while (_currentChar != NULL)
+	while (_currentChar != '\0')
 	{
 		if (DIGITS.find(_currentChar) != std::string::npos)
 		{
@@ -101,7 +101,7 @@ Token Lexer::makeNumber()
 {
 	std::string number = "";
 	int dotCount = 0;
-	while (_currentChar != NULL && (isdigit(_currentChar) || _currentChar == '.'))
+	while (_currentChar != '\0' && (isdigit(_currentChar) || _currentChar == '.'))
 	{
 		if (_currentChar == '.')
 		{

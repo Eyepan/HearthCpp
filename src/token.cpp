@@ -8,7 +8,7 @@ Token::Token(std::string type, std::variant<int, float, std::string> data)
 
 std::ostream& operator<<(std::ostream& os, Token& token)
 {
-	if (token._data == (std::variant<int, float, std::string>)NULL)
+	if (token._data == (std::variant<int, float, std::string>)"\0")
 	{
 		os << token._type;
 	}
