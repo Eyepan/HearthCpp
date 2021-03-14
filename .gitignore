@@ -2,3 +2,7 @@
 vendor/premake/bin/premake5.exe
 Hearth.sln
 Hearth.vcxproj
+Hearth.vcxproj.user
+.vs/*
+bin/*
+obj/*
