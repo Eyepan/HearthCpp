@@ -8,16 +8,28 @@ struct LexResult
 	Error error;
 };
 
+// class Lexer
+// {
+// public:
+// 	std::string _text;
+// 	int _pos;
+// 	char _currentChar;
+// 
+// 
+// 	Lexer(std::string text);
+// 	void advance();
+// 	LexResult makeTokens();
+// 	Token makeNumber();
+// };
+
 class Lexer
 {
 public:
 	std::string _text;
-	int _pos;
-	char _currentChar;
-
+	std::stringstream _ss;
+	std::vector <Token> _tokens;
 
 	Lexer(std::string text);
-	void advance();
 	LexResult makeTokens();
-	Token makeNumber();
+	void printTokens();
 };

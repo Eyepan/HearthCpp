@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
 #include <variant>
 
 #define TT_INT		"INT"
