@@ -11,4 +11,3 @@ Makefile
 .v*
 Hearth.vcxproj.filters
 build.py
-*.py
