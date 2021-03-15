@@ -2,17 +2,6 @@
 
 std::string DIGITS = "0123456789";
 
-// TOKENS
-
-std::string TT_INT		= "INT";
-std::string TT_FLOAT    = "FLOAT";
-std::string TT_PLUS     = "PLUS";
-std::string TT_MINUS    = "MINUS";
-std::string TT_MUL      = "MUL";
-std::string TT_DIV      = "DIV";
-std::string TT_LPAREN   = "LPAREN";
-std::string TT_RPAREN   = "RPAREN";
-std::string TT_EXP      = "EXP";
 
 Lexer::Lexer(std::string text)
 {
@@ -25,7 +14,7 @@ Lexer::Lexer(std::string text)
 void Lexer::advance()
 {
 	_pos++;
-	if (_pos < _text.length())
+	if (_pos < (int)_text.length())
 	{
 		_currentChar = _text[_pos];
 	}
@@ -35,9 +24,10 @@ void Lexer::advance()
 	}
 }
 
-std::vector<Token> Lexer::makeTokens()
+LexResult Lexer::makeTokens()
 {
 	std::vector<Token> _tokens;
+	
 
 	while (_currentChar != '\0')
 	{
@@ -86,15 +76,13 @@ std::vector<Token> Lexer::makeTokens()
 				exit(0);
 				break;
 			default:
-				std::cout << "\nILLEGAL CHARACTER ERROR " << _currentChar;
-				_tokens.clear();
-				system("pause");
-				exit(0);
+				Error _error(_pos, ErrorType::ILLEGAL_CHAR_ERR, std::string(1, _currentChar));
+				return{ _tokens, _error };
 		}
 		
 	}
-
-	return _tokens;
+	Error success;
+	return { _tokens, success };
 }
 
 Token Lexer::makeNumber()

@@ -1,6 +1,12 @@
 #pragma once
 
-#include <token.hpp>
+#include <errors.hpp>
+
+struct LexResult
+{
+	std::vector<Token> tokens;
+	Error error;
+};
 
 class Lexer
 {
@@ -12,6 +18,6 @@ public:
 
 	Lexer(std::string text);
 	void advance();
-	std::vector<Token> makeTokens();
+	LexResult makeTokens();
 	Token makeNumber();
 };

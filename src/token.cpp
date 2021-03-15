@@ -6,6 +6,11 @@ Token::Token(std::string type, std::variant<int, float, std::string> data)
 	_data = data;
 }
 
+Token::Token()
+{
+
+}
+
 std::ostream& operator<<(std::ostream& os, Token& token)
 {
 	if (token._data == (std::variant<int, float, std::string>)"\0")
@@ -23,9 +28,11 @@ std::ostream& operator<<(std::ostream& os, Token& token)
 		case 1:
 			// float
 			os << token._type << ":" << (float&)token._data;
+			break;
 		case 2:
 			// string
 			os << token._type << ":" << (std::string&)token._data;
+			break;
 		}
 	}
 

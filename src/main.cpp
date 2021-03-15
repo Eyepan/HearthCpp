@@ -3,7 +3,7 @@
 
 int main()
 {
-	std::cout << "WELCOME TO HEARTH v0.0.1" << std::endl;
+	std::cout << "WELCOME TO HEARTH v0.0.2" << std::endl;
 	std::string text;
 	bool running = true;
 	while (running)
@@ -12,10 +12,17 @@ int main()
 		std::getline(std::cin, text);
 
 		Lexer lexer(text);
-		std::vector<Token> tokens = lexer.makeTokens();
-		for (auto i : tokens)
+		LexResult result  = lexer.makeTokens();
+		if (result.error._errorType == ErrorType::SUCCESS)
 		{
-			std::cout << i << " ";
+			for (auto i : result.tokens)
+			{
+				std::cout << i << " ";
+			}
+		}
+		else
+		{
+			std::cout << result.error.errorString << std::endl;
 		}
 	}
 }
