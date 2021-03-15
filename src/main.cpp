@@ -2,7 +2,7 @@
 
 int main()
 {
-	hearth ht;
+	Hearth ht;
 	ht.mainLoop();
 	return 0;
 }
