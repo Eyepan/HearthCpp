@@ -8,7 +8,7 @@ project "Hearth"
 	language "C++"
 	targetdir "bin/%{cfg.buildcfg}"
 
-	files { "src/**" }
+	files { "src/**", "include/**" }
 	includedirs { "include" }
 	cppdialect "C++17"
 
