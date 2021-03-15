@@ -5,7 +5,8 @@ Hearth.vcxproj
 Hearth.vcxproj.user
 bin/*
 obj/*
-Hearth*
+Hearth.make
 Makefile
 *.bat
 .v*
+Hearth.vcxproj.filters
