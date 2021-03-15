@@ -16,4 +16,4 @@ else:
 	system("make")
 	system("code .")
 	system("./bin/Debug/Hearth")
-exit()
+system("exit")
