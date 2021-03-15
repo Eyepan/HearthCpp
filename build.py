@@ -8,10 +8,12 @@ if sys.platform == "win32":
 	else:
 		system("premake5 gmake2")
 		system("mingw32-make")
+		system("code .")
 		system("start bin/Debug/Hearth.exe")
 
 else:
 	system("premake5 gmake")
 	system("make")
+	system("code .")
 	system("./bin/Debug/Hearth")
 exit()
