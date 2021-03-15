@@ -15,6 +15,10 @@
 #define TT_LPAREN   "LPAREN"
 #define TT_RPAREN	"RPAREN"
 #define TT_EXP		"EXP"
+#define TT_LSQB     "LSQB"
+#define TT_RSQB     "RSQB"
+#define TT_LBRACE     "LBRACE"
+#define TT_LBRACE     "LBRACE"
 
 // TOKENS STRUCT
 

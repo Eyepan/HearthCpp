@@ -84,6 +84,22 @@ LexResult Lexer::makeTokens()
 				_tokens.push_back({ "EXP" });
 				_pos += _token.size() + 1;
 				continue;
+			case '[':
+				_tokens.push_back({ "LSQB" });
+				_pos += _token.size() + 1;
+				continue;
+			case ']':
+				_tokens.push_back({ "RSQB" });
+				_pos += _token.size() + 1;
+				continue;
+			case '{':
+				_tokens.push_back({ "LBRACE" });
+				_pos += _token.size() + 1;
+				continue;
+			case '}':
+				_tokens.push_back({ "RBRACE" });
+				_pos += _token.size() + 1;
+				continue;
 
 				// seriously bad code
 			case 'x':
