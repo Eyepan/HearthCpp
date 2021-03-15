@@ -18,7 +18,7 @@ Error::Error(int position, ErrorType type, std::string details, std::string file
 	switch (_errorType)
 	{
 	case ErrorType::ILLEGAL_CHAR_ERR:
-		errorString = "Illegal Character: '" + _details;
+		errorString = "Illegal Character: '" + std::string(1, _details[0]) + "' in token '" + _details;
 		errorString += "' in position " + std::to_string(_position) + " in file " + file;
 		break;
 	case ErrorType::INVALID_SYNTAX_ERR:
