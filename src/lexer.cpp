@@ -15,6 +15,13 @@ LexResult Lexer::makeTokens()
 	int _pos = 0;
 	while (_ss >> _token)
 	{
+		if (_token == "quit")
+		{
+			std::cout << "\nEXITING HEARTH\n";
+			std::cout << "Press any key to continue...\n";
+			std::cin.get();
+			exit(0);
+		}
 		if (DIGITS.find(_token[0]) != std::string::npos)
 		{
 			if (_token.find('.') != std::string::npos)
@@ -86,12 +93,6 @@ LexResult Lexer::makeTokens()
 				_tokens.push_back({ "RBRACE" });
 				_pos += _token.size() + 1;
 				continue;
-
-				// seriously bad code
-			case 'x':
-				std::cout << "\nEXITING HEARTH\n";
-				exit(0);
-				break;
 			default:
 				Error _error(_pos, ErrorType::ILLEGAL_CHAR_ERR, _token);
 				return{ _tokens, _error };
