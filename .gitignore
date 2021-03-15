@@ -6,3 +6,5 @@ Hearth.vcxproj.user
 .vs/*
 bin/*
 obj/*
+Hearth.make
+Makefile
