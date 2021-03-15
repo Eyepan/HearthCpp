@@ -95,11 +95,6 @@ LexResult Lexer::makeTokens()
 		else
 		{
 			// Illegal Character Error
-			for (int i = 0; i < _pos + 9; i++)
-			{
-				std::cout << " ";
-			}
-			std::cout << "^\n";
 			Error _error(_pos, ErrorType::ILLEGAL_CHAR_ERR, _token);
 			return{ _tokens, _error };
 		}

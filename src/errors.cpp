@@ -10,6 +10,11 @@ Error::Error(int position, ErrorType type, std::string details, std::string file
 	_position = position;
 	_errorType = type;
 	_details = details;
+	for (int i = 0; i < _position + 9; i++)
+	{
+		std::cout << " ";
+	}
+	std::cout << "^\n";
 	switch (_errorType)
 	{
 	case ErrorType::ILLEGAL_CHAR_ERR:
