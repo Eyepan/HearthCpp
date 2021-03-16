@@ -1,17 +1,16 @@
 #include <token.hpp>
 
-// Token::Token(std::string type, std::variant<int, float, std::string> data)
-// {
-// 	_type = type;
-// 	_data = data;
-// }
-
-
-
 Token::Token()
 {
 
 }
+
+Token::Token(std::string type, std::variant<int, float, std::string> data)
+{
+	_type = type;
+	_data = data;
+}
+
 
 std::ostream& operator<<(std::ostream& os, Token& token)
 {
