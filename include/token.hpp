@@ -19,14 +19,15 @@
 #define TT_RSQB     "RSQB"
 #define TT_LBRACE   "LBRACE"
 #define TT_LBRACE   "LBRACE"
+typedef std::variant<int, float, std::string> DATA;
 
 // TOKENS STRUCT
 
 struct Token
 {
 	std::string _type;
-	std::variant<int, float, std::string> _data;
+	DATA _data;
 	Token();
-	Token(std::string type, std::variant<int, float, std::string> data = "\0");
+	Token(std::string type, DATA data = "\0");
 };
 std::ostream& operator<<(std::ostream& os, Token& token);

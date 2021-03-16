@@ -5,7 +5,7 @@ Token::Token()
 
 }
 
-Token::Token(std::string type, std::variant<int, float, std::string> data)
+Token::Token(std::string type, DATA data)
 {
 	_type = type;
 	_data = data;
@@ -14,7 +14,7 @@ Token::Token(std::string type, std::variant<int, float, std::string> data)
 
 std::ostream& operator<<(std::ostream& os, Token& token)
 {
-	if (token._data == (std::variant<int, float, std::string>)"\0")
+	if (token._data == (DATA)"\0")
 	{
 		os << token._type;
 	}
