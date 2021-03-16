@@ -4,6 +4,18 @@
 
 #include <errors.hpp>
 
+class Node
+{
+public:
+	Token _token;
+	Node* _left;
+	Node* _right;
+	Node(Token tk);
+	Node(Token opToken, Node left, Node right);
+};
+
+void displayNodes(Node* root);
+
 class Parser
 {
 public:
@@ -12,5 +24,13 @@ public:
 	int _tokenIndex;
 
 	Parser(std::vector<Token> tokens);
+	void advance();
+	Node factor();
+	Node term();
+	Node expr();
+	
+	Node parse();
+
+
 };
 

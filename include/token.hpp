@@ -19,6 +19,7 @@
 #define TT_RSQB     "RSQB"
 #define TT_LBRACE   "LBRACE"
 #define TT_LBRACE   "LBRACE"
+#define TT_EOF		"EOF"
 typedef std::variant<int, float, std::string> DATA;
 
 // TOKENS STRUCT

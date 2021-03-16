@@ -23,5 +23,9 @@ void Hearth::mainLoop()
 		{
 			std::cout << result.error.errorString << std::endl;
 		}
+		Parser parser(result.tokens);
+		Node ast = parser.parse();
+		displayNodes(&ast);
+
 	}
 }
