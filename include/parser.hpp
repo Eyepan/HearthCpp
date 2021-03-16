@@ -11,8 +11,6 @@ public:
 	Token _currentToken;
 	int _tokenIndex;
 
-	Parser();
 	Parser(std::vector<Token> tokens);
-	~Parser();
 };
 

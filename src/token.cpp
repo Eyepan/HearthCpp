@@ -1,10 +1,12 @@
 #include <token.hpp>
 
-Token::Token(std::string type, std::variant<int, float, std::string> data)
-{
-	_type = type;
-	_data = data;
-}
+// Token::Token(std::string type, std::variant<int, float, std::string> data)
+// {
+// 	_type = type;
+// 	_data = data;
+// }
+
+
 
 Token::Token()
 {
