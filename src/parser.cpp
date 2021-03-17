@@ -9,18 +9,22 @@ Node::Node(Token tk)
 
 Node::Node(Token opToken, Node left, Node right)
 {
-	_token = opToken;
 	_left = &left;
 	_right = &right;
+	_token = opToken;
 }
 
 void displayNodes(Node* root)
 {
 	if (root != NULL)
 	{
-		displayNodes(root->_left);
+		std::cout << "(";
+		if (root->_left != NULL)
+			displayNodes(root->_left);
 		std::cout << root->_token << " ";
-		displayNodes(root->_right);
+		if (root->_right)
+			displayNodes(root->_right);
+		std::cout << ")";
 	}
 }
 

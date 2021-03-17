@@ -7,9 +7,11 @@
 class Node
 {
 public:
+	Node *_left = NULL;
+	Node *_right = NULL;
+	
 	Token _token;
-	Node* _left;
-	Node* _right;
+
 	Node(Token tk);
 	Node(Token opToken, Node left, Node right);
 };
@@ -30,7 +32,5 @@ public:
 	Node expr();
 	
 	Node parse();
-
-
 };
 
