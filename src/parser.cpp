@@ -2,8 +2,8 @@
 
 Node::Node(Token tk)
 {
-	_left = NULL;
-	_right = NULL;
+	_left = nullptr;
+	_right = nullptr;
 	_token = tk;
 }
 
@@ -16,13 +16,13 @@ Node::Node(Token opToken, Node left, Node right)
 
 void displayNodes(Node* root)
 {
-	if (root != NULL)
+	if (root != nullptr)
 	{
 		std::cout << "(";
-		if (root->_left != NULL)
+		if (root->_left != nullptr)
 			displayNodes(root->_left);
 		std::cout << root->_token << " ";
-		if (root->_right)
+		if (root->_right != nullptr)
 			displayNodes(root->_right);
 		std::cout << ")";
 	}

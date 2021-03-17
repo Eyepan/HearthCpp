@@ -7,8 +7,8 @@
 class Node
 {
 public:
-	Node *_left = NULL;
-	Node *_right = NULL;
+	Node *_left = nullptr;
+	Node *_right = nullptr;
 	
 	Token _token;
 
