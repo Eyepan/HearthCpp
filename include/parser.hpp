@@ -13,7 +13,7 @@ public:
 	Token _token;
 
 	Node(Token tk);
-	Node(Token opToken, Node left, Node right);
+	Node(Token opToken, Node *left, Node *right);
 };
 
 void displayNodes(Node* root);

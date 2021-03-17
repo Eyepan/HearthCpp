@@ -7,10 +7,10 @@ Node::Node(Token tk)
 	_token = tk;
 }
 
-Node::Node(Token opToken, Node left, Node right)
+Node::Node(Token opToken, Node *left, Node *right)
 {
-	_left = &left;
-	_right = &right;
+	_left = left;
+	_right = right;
 	_token = opToken;
 }
 
@@ -19,11 +19,9 @@ void displayNodes(Node* root)
 	if (root != nullptr)
 	{
 		std::cout << "(";
-		if (root->_left != nullptr)
-			displayNodes(root->_left);
+		displayNodes(root->_left);
 		std::cout << root->_token << " ";
-		if (root->_right != nullptr)
-			displayNodes(root->_right);
+		displayNodes(root->_right);
 		std::cout << ")";
 	}
 }
@@ -66,7 +64,7 @@ Node Parser::term()
 		Token operatorToken = _currentToken;
 		advance();
 		Node right = factor();
-		left = Node(operatorToken, left, right);
+		left = Node(operatorToken, &left, &right);
 	}
 
 	return left;
@@ -80,7 +78,7 @@ Node Parser::expr()
 		Token operatorToken = _currentToken;
 		advance();
 		Node right = term();
-		left = Node(operatorToken, left, right);
+		left = Node(operatorToken, &left, &right);
 	}
 
 	return left;
