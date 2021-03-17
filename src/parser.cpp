@@ -2,8 +2,6 @@
 
 Node::Node(Token tk)
 {
-	_left = nullptr;
-	_right = nullptr;
 	_token = tk;
 }
 
@@ -14,6 +12,7 @@ Node::Node(Token opToken, Node *left, Node *right)
 	_token = opToken;
 }
 
+// TODO : Fix this shit
 void displayNodes(Node* root)
 {
 	if (root != nullptr)
