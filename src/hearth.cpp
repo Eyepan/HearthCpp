@@ -22,6 +22,7 @@ void Hearth::mainLoop()
 		else
 		{
 			std::cout << result.error.errorString << std::endl;
+			continue;
 		}
 		Parser parser(result.tokens);
 		Node ast = parser.parse();
