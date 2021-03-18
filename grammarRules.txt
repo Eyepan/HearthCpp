@@ -1,7 +1,13 @@
-expression	: term ((PLUS/MINUS) term)**
+// 5 + 9 * 2
 
 
-term		: factor ((MUL/DIV) factor)**
+expr			: term (PLUS/MINUS term)**
+term			: factor (MUL/DIV factor)**
+factor			: INT/FLOAT
 
 
-factor		: INT/FLOAT
+// factors are 5, 9, 2
+// terms are 5, 9 * 2
+// expression is 5 + 9 * 2
+
+(5 + (9 * 2))

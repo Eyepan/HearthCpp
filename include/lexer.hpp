@@ -1,21 +1,30 @@
 #pragma once
 
-#include <errors.hpp>
 
-struct LexResult
-{
-	std::vector<Token> tokens;
-	Error error;
-};
+#include <token.hpp>
+
+// std::vector<Token> _tokens;
+// std::string _text; 
+// int _currentPosition = -1;
+// Lexer::advance()
+// Lexer::makeTokens()
+// Lexer::printTokens()
 
 class Lexer
 {
 public:
-	std::string _text;
-	std::stringstream _ss;
-	std::vector <Token> _tokens;
+
+	std::vector<Token> _tokens;
+	std::string _text; 
+	int _currentPosition = -1;
+	char _currentChar;
+
 
 	Lexer(std::string text);
-	LexResult makeTokens();
+	void advance();
+	void makeTokens();
+	void makeNumber();
 	void printTokens();
+
+	std::vector<Token> getTokens();
 };

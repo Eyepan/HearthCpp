@@ -1,40 +1,37 @@
 #include <token.hpp>
 
-Token::Token()
+Token::Token() 
 {
-
+    // Welcome to Token()!
+    // This is just a lounge!
+    // Be my guest.
+    // std::cout << "Token object has been instantiated!\n";
+    // My life's purpose is complete!
+    // Please hold on to your seatbelts and pray to all the non-existent gods.
 }
 
 Token::Token(std::string type, DATA data)
 {
-	_type = type;
+    _type = type;
 	_data = data;
 }
 
+// To print out the tokens by overloading the cascading operator.
+// In this format ==>  TYPE:DATA
 
-std::ostream& operator<<(std::ostream& os, Token& token)
+std::ostream& operator<<(std::ostream& os, const Token& tk)
 {
-	if (token._data == (DATA)"\0")
+	if (tk._type == TT_INT)
+    {
+        os << tk._type << ":" << std::get<int>(tk._data);
+    }
+	else if (tk._type == TT_FLOAT)
 	{
-		os << token._type;
+		os << tk._type << ":" << std::get<float>(tk._data);
 	}
 	else
 	{
-		switch (token._data.index())
-		{
-		case 0:
-			// integer
-			os << token._type << ":" << (int&)token._data;
-			break;
-		case 1:
-			// float
-			os << token._type << ":" << (float&)token._data;
-			break;
-		case 2:
-			// string
-			os << token._type << ":" << (std::string&)token._data;
-			break;
-		}
+		os << tk._type;
 	}
 
 	return os;
