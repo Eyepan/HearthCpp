@@ -1,4 +1,5 @@
 #include <reparser.hpp>
+#include <errors.hpp>
 
 Parser::Parser(std::vector<Token> tokens) : _tokens(tokens)
 {
@@ -22,13 +23,24 @@ Token Parser::factor()
 	}
 	else
 	{
-		// TODO: error checking, expect an int/float
+		Error error(0, ErrorType::INVALID_SYNTAX_ERR, "Expected an int/float token");
+		std::cout << error.errorString << std::endl;
+		system("pause");
+		exit(0);
 	}
 }
 
 Token Parser::term()
 {
 	Token right = factor();
+	// checking if the next one is an operator
+	if ((_stack.peek()._type != TT_PLUS) || (_stack.peek()._type != TT_MINUS) || (_stack.peek()._type != TT_MUL) || (_stack.peek()._type != TT_DIV))
+	{
+		Error error(_stack._top, ErrorType::INVALID_SYNTAX_ERR, "Expected +,-,*,/ token");
+		std::cout << error.errorString << std::endl;
+		system("pause");
+		exit(0);
+	}
 	while ((_stack.peek()._type == TT_MUL) || (_stack.peek()._type == TT_DIV))
 	{
 		Token op = _stack.pop();

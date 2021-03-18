@@ -1,4 +1,5 @@
 #include <lexer.hpp>
+#include <errors.hpp>
 
 Lexer::Lexer(std::string text): _text(text), _currentPosition(-1)
 {
@@ -15,7 +16,7 @@ void Lexer::advance()
 	}
 	else
 	{
-		_currentChar = NULL;
+		_currentChar = '\0';
 	}
 }
 
@@ -27,7 +28,7 @@ void Lexer::makeTokens()
 		std::cout << "EXITING HEARTH\n";
         exit(0);
 	}
-	while (_currentChar != NULL)
+	while (_currentChar != '\0')
 	{
 		if (isdigit(_currentChar) || _currentChar == '.')
 		{
@@ -83,12 +84,14 @@ void Lexer::makeTokens()
 					advance();
 					break;
 			default:
-					for (int i = 0; i < _currentPosition + 9; i++)
-					{
-						std::cout << " ";
-					}
-					std::cout << "^\n";
-					std::cout << "ILLEGAL CHARACTER " << _currentChar << " in position " << _currentPosition << " of file <stdin>";
+					//for (int i = 0; i < _currentPosition + 9; i++)
+					//{
+					//	std::cout << " ";
+					// }
+					// std::cout << "^\n";
+					// std::cout << "ILLEGAL CHARACTER " << _currentChar << " in position " << _currentPosition << " of file <stdin>";
+					Error error(_currentPosition, ErrorType::ILLEGAL_CHAR_ERR, &_currentChar);
+					std::cout << error.errorString;
 					_tokens.clear();
 					return;
 		}
