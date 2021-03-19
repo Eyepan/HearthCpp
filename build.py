@@ -4,7 +4,7 @@ import sys
 from os import system
 if sys.platform == "win32":
 	usingVS = input("Do you want to use Visual Studio 2019? Y/N: ")
-	if usingVS == "Y":
+	if usingVS == "Y" or usingVS == 'y':
 		system("premake5 vs2019")
 		system("start Hearth.sln")
 	else:
@@ -14,8 +14,10 @@ if sys.platform == "win32":
 		system("start bin/Debug/Hearth.exe")
 
 else:
+	usingVS = input("Do you want to use Visual Studio Code? Y/N: ")
+	if usingVS == 'Y' or usingVS == 'y':
+		system("code .")
 	system("premake5 gmake")
 	system("make")
-	system("code .")
 	system("./bin/Debug/Hearth")
 system("exit")
