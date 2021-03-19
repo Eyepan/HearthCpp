@@ -42,7 +42,7 @@ VAR
 >
 !=
 
-// now finally grammar rules
+// now grammar rules
 
 program		: 	(function)**
 
