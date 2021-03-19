@@ -38,7 +38,7 @@ Token Parser::factor()
 	{
 		Error error(0, ErrorType::INVALID_SYNTAX_ERR, "Expected an int/float token");
 		std::cout << error.errorString << std::endl;
-		system("pause");
+		
 		exit(0);
 	}
 }
