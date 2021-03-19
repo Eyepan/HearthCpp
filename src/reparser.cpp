@@ -21,6 +21,19 @@ Token Parser::factor()
 	{
 		return _stack.pop();	
 	}
+	else if ((_stack.peek()._type == TT_RPAREN))
+	{
+		advance();
+		Token expression = expr();
+		if (_stack.peek()._type == TT_LPAREN)
+		{
+			return expression;
+		}
+		else
+		{
+			Error error(0, ErrorType::INVALID_SYNTAX_ERR, "Expected a paranthesis");
+		}
+	}
 	else
 	{
 		Error error(0, ErrorType::INVALID_SYNTAX_ERR, "Expected an int/float token");
