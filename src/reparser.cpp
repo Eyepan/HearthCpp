@@ -19,7 +19,7 @@ Token Parser::factor()
 {
 	if ((_stack.peek()._type == TT_INT) || (_stack.peek()._type == TT_FLOAT))
 	{
-		return _stack.pop();	
+		return _stack.pop();
 	}
 	else if ((_stack.peek()._type == TT_RPAREN))
 	{
@@ -46,14 +46,17 @@ Token Parser::factor()
 Token Parser::term()
 {
 	Token right = factor();
-	// checking if the next one is an operator
-	// if ((_stack.peek()._type != TT_PLUS) || (_stack.peek()._type != TT_MINUS) || (_stack.peek()._type != TT_MUL) || (_stack.peek()._type != TT_DIV))
-	// {
-	// 	Error error(_stack._top, ErrorType::INVALID_SYNTAX_ERR, "Expected +,-,*,/ token");
-	// 	std::cout << error.errorString << std::endl;
-	// 	system("pause");
-	// 	exit(0);
-	// }
+	// checking if the next one is a valid token in this scenario
+	if (!_stack.isEmpty())
+	{
+		if ((_stack.peek()._type != TT_PLUS) && (_stack.peek()._type != TT_MINUS) && (_stack.peek()._type != TT_MUL) && (_stack.peek()._type != TT_DIV) && (_stack.peek()._type != TT_RPAREN) && (_stack.peek()._type != TT_LPAREN))
+		{
+			Error error(_stack._top, ErrorType::INVALID_SYNTAX_ERR, "Expected +,-,*,/ token");
+			std::cout << error.errorString << std::endl;
+			system("pause");
+			exit(0);
+		}
+	}
 	while ((_stack.peek()._type == TT_MUL) || (_stack.peek()._type == TT_DIV))
 	{
 		Token op = _stack.pop();
