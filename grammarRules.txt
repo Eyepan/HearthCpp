@@ -1,13 +1,65 @@
-// 5 + 9 * 2
-
 
 expr			: term (PLUS/MINUS term)**
 term			: factor (MUL/DIV factor)**
 factor			: INT/FLOAT
 
 
-// factors are 5, 9, 2
-// terms are 5, 9 * 2
-// expression is 5 + 9 * 2
+// Parser Tokens
+IDENTIFIERS 	= names of variables and functions
+STRING LITERALS	= starts with a double quote and ends with a double quote
+INTEGER/FLOAT LITERALS	= numbers
+END OF FILE 	= marks the end of the file
 
-(5 + (9 * 2))
+// reserved keywords
+IF
+WHILE
+RETURN
+VAR
+
+// operators
++
+-
+*
+/
+=
+(
+)
+[
+]
+{
+}
+;
+:
+&
+|
+&&
+||
+!
+==
+<=
+>=
+<
+>
+!=
+
+// now finally grammar rules
+
+program		: 	(function)**
+
+function	:	IDENTIFIER (IDENTIFIER COMMA)** COLON statement
+
+statement	:	LBRACE (statement)** RBRACE							// compound statement
+statement	:	IF LPAREN expression RPAREN statement				// conditional statement
+statement	:	WHILE LPRAREN expression RPAREN statement			// looping statement
+statement	: 	RETURN expression SEMICOLON							// return statement
+statement 	: 	VAR (IDENTIFIER)** SEMICOLON						// variable declaration statemetn
+statement	:	VAR (IDENTIFIER EQUALS expression)** SEMICOLON		// variable definition statement
+statement	: 	expression SEMICOLON								// expression statement
+statement	: 	SEMICOLON											// no operation statement
+
+expression	:	INTEGER/FLOAT LITERALS								// literal expression
+expression	: 	STRING LITERALS										// literal expression
+expression	:	IDENTIFIER											// literal expression
+expression	:	LPAREN expression RPAREN							// literal expression
+expression	:	expression LSQBR expression RSQBR					// indexing expression
+expression	:	expression LPAREN (expression COMMA)** RPAREN		// function call expression
