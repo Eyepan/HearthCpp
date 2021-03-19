@@ -90,10 +90,8 @@ void Lexer::makeTokens()
 					// }
 					// std::cout << "^\n";
 					// std::cout << "ILLEGAL CHARACTER " << _currentChar << " in position " << _currentPosition << " of file <stdin>";
-					Error error(_currentPosition, ErrorType::ILLEGAL_CHAR_ERR, &_currentChar);
-					std::cout << error.errorString;
 					_tokens.clear();
-					return;
+					Error error(_currentPosition, ErrorType::ILLEGAL_CHAR_ERR, &_currentChar);
 		}
 	}
 

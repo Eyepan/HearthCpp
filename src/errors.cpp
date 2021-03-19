@@ -28,5 +28,9 @@ Error::Error(int position, ErrorType type, std::string details, std::string file
 	default:
 		std::cerr << "Invalid Error Type" << std::endl;
 	}
+
+	std::cout << errorString << std::endl;
+	PAUSE();
+	exit(0);
 }
 

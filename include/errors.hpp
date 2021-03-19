@@ -1,6 +1,8 @@
 #pragma once
 #include <token.hpp>
 
+void PAUSE();
+
 enum class ErrorType
 {
 	ILLEGAL_CHAR_ERR,

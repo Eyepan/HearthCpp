@@ -37,9 +37,6 @@ Token Parser::factor()
 	else
 	{
 		Error error(0, ErrorType::INVALID_SYNTAX_ERR, "Expected an int/float token");
-		std::cout << error.errorString << std::endl;
-		system("pause");
-		exit(0);
 	}
 }
 
@@ -52,9 +49,6 @@ Token Parser::term()
 		if ((_stack.peek()._type != TT_PLUS) && (_stack.peek()._type != TT_MINUS) && (_stack.peek()._type != TT_MUL) && (_stack.peek()._type != TT_DIV) && (_stack.peek()._type != TT_RPAREN) && (_stack.peek()._type != TT_LPAREN))
 		{
 			Error error(_stack._top, ErrorType::INVALID_SYNTAX_ERR, "Expected +,-,*,/ token");
-			std::cout << error.errorString << std::endl;
-			system("pause");
-			exit(0);
 		}
 	}
 	while ((_stack.peek()._type == TT_MUL) || (_stack.peek()._type == TT_DIV))
