@@ -1,6 +1,20 @@
 #include <errors.hpp>
 
 
+#ifdef _WIN32
+void PAUSE()
+{
+	system("pause");
+}
+#else
+void PAUSE()
+{
+	std::cin.ignore(1024, '\n');
+	std::cout << "PRESS ENTER TO CONTINUE...";
+	std::cin.get();
+}
+#endif
+
 Error::Error()
 {
 	_errorType = ErrorType::SUCCESS;
