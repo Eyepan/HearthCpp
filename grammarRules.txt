@@ -54,6 +54,7 @@ statement	:	WHILE LPRAREN expression RPAREN statement			// looping statement
 statement	: 	RETURN expression SEMICOLON							// return statement
 statement 	: 	VAR (IDENTIFIER)** SEMICOLON						// variable declaration statemetn
 statement	:	VAR (IDENTIFIER EQUALS expression)** SEMICOLON		// variable definition statement
+statement   :   expression EQUALS expression SEMICOLON              // variable assignment statement
 statement	: 	expression SEMICOLON								// expression statement
 statement	: 	SEMICOLON											// no operation statement
 
