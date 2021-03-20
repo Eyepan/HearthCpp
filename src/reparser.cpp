@@ -38,6 +38,7 @@ Token Parser::factor()
 	{
 		Error error(0, ErrorType::INVALID_SYNTAX_ERR, "Expected an int/float token");
 	}
+	// return Token();
 }
 
 Token Parser::term()

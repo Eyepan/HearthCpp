@@ -9,8 +9,10 @@ if sys.platform == "win32":
 		system("start Hearth.sln")
 	else:
 		system("premake5 gmake2")
-		system("mingw32-make")
-		system("code .")
+		system("make")
+		usingVS = input("Do you want to use Visual Studio Code? Y/N: ")
+		if usingVS == 'Y' or usingVS == 'y':
+			system("code .")
 		system("start bin/Debug/Hearth.exe")
 
 else:

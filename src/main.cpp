@@ -5,6 +5,7 @@
 int main()
 {
 	std::cout << "WELCOME TO HEARTH TESTING. TO EXIT ENTER 'quit'.\n";
+	// system("pause");
 	while (true)
 	{
 		std::cout << "\nhearth~$ ";
