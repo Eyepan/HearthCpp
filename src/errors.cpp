@@ -9,8 +9,8 @@ void PAUSE()
 #else
 void PAUSE()
 {
-	std::cin.ignore(1024, '\n');
-	std::cout << "PRESS ENTER TO CONTINUE...";
+	// std::cin.ignore(1024, '\n');
+	std::cout << "Press enter to continue...";
 	std::cin.get();
 }
 #endif
